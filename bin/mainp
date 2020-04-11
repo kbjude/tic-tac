@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+
+# Player class being initialised
+puts 'Welcome to Tic Tac Toe!'
+class Player
+  attr_reader :character
+  attr_accessor :name
+
+  def initialize(name: name, character: character)
+    @name = name
+    @character = character
+  end
+
+  def makes_move
+    puts 'moved to the left'
+  end
+
+  # def setin_name(name)
+  #   @name = name
+  # end
+end
+playing = Player.new(name: 'Kajura', character: 'X')
+playing.makes_move
+puts 'sorted'
+puts playing.name, playing.character
+
+# # Game interface
+# class Interface
+#   def initialize(name, character)
+#     @name = name
+#     @character = character
+#   end
+
+#   def move(player = Player.name, position)
+#     # Cordinates of the player on postion
+#     @player = player
+#     @position = position
+#   end
+
+#   def display; end
+
+#   def start
+#     player1 = Player.new(nil, 'first')
+#     player2 = Player.new(player1, 'second')
+#     current = player1
+#     puts 'Testing code'
+#   end
+
+#   def player_input
+#     puts 'Please type you input'
+#     gets.to_i
+#   end
+
+#   def game_completion; end
+# end
+
+# @player_status = Interface.new
+# @player_status.start
