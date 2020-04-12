@@ -1,26 +1,39 @@
+# frozen_string_literal: true
 #!/usr/bin/env ruby
 
 # Player class being initialised
-puts 'Welcome to Tic Tac Toe!'
+puts ' Welcome to Tic Tac Toe! '
 class Player
   attr_reader :character
   attr_accessor :name
+  attr_reader :position
 
-  def initialize(name: name, character: character)
+  def initialize(name: name, character: character, position: position)
     @name = name
     @character = character
+    @position = position
   end
 
-  def makes_move
-    puts 'moved to the left'
+  def display_board(board)
+    puts "Select a number between 0 - 8 to make a move"
+    position = gets.strip
+    character = "X"
+    board[position.to_i] = character
+
+    puts " #{board[0]}  |  #{board[1]}  | #{board[2]} "
+    puts '-------------'
+    puts " #{board[3]}  |  #{board[4]}  | #{board[5]} "
+    puts '-------------'
+    puts " #{board[6]}  |  #{board[7]}  | #{board[8]} "
   end
 
-  # def setin_name(name)
-  #   @name = name
-  # end
+  def start
+    puts "Type in your move"
+  end
 end
-playing = Player.new(name: 'Kajura', character: 'X')
-playing.makes_move
+board = [" "," ", " ", " ", " ", " ", " ", " ", " "]
+playing = Player.new(name: 'Kajura', character: 'X', position: 'here"')
+playing.display_board(board)
 puts 'sorted'
 puts playing.name, playing.character
 
@@ -39,12 +52,7 @@ puts playing.name, playing.character
 
 #   def display; end
 
-#   def start
-#     player1 = Player.new(nil, 'first')
-#     player2 = Player.new(player1, 'second')
-#     current = player1
-#     puts 'Testing code'
-#   end
+
 
 #   def player_input
 #     puts 'Please type you input'
