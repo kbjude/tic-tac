@@ -14,17 +14,46 @@ class Player
     @position = position
   end
 
+  def player_unit
+      player = [ ]
+      puts "player1 Type in you name"
+      puts player1 = gets.to_i
+      player[player1]
+      puts "player type in your name"
+      player2 = gets.to_i
+      player.push(player2)
+      player.each do |current|
+        current_player = current
+        puts current_player
+      end
+  end
+
   def display_board(board)
-    puts "Select a number between 0 - 8 to make a move"
+  # This should be a move class:
+  if player_unit.current_player == player_unit.player2
+    puts "Player 2 Select a number between 0 - 8 to make a move"
+    position = gets.strip
+    character = "0"
+    board[position.to_i] = character
+    player_unit.player2[display_board.position] 
+  else
+    puts "Player1 Select a number between 0 - 8 to make a move"
     position = gets.strip
     character = "X"
     board[position.to_i] = character
+    player_unit.player1[position]
+  end
 
+  #The board and populating it:
     puts " #{board[0]}  |  #{board[1]}  | #{board[2]} "
     puts '-------------'
     puts " #{board[3]}  |  #{board[4]}  | #{board[5]} "
     puts '-------------'
     puts " #{board[6]}  |  #{board[7]}  | #{board[8]} "
+  end
+
+  def new_player(name)
+    Player.new(name)
   end
 
   def start
@@ -36,31 +65,3 @@ playing = Player.new(name: 'Kajura', character: 'X', position: 'here"')
 playing.display_board(board)
 puts 'sorted'
 puts playing.name, playing.character
-
-# # Game interface
-# class Interface
-#   def initialize(name, character)
-#     @name = name
-#     @character = character
-#   end
-
-#   def move(player = Player.name, position)
-#     # Cordinates of the player on postion
-#     @player = player
-#     @position = position
-#   end
-
-#   def display; end
-
-
-
-#   def player_input
-#     puts 'Please type you input'
-#     gets.to_i
-#   end
-
-#   def game_completion; end
-# end
-
-# @player_status = Interface.new
-# @player_status.start
